@@ -1,0 +1,19 @@
+
+.conveyancer table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.conveyancer th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+.conveyancer th {
+  background-color: rgb(0, 94, 184); height: 50px;
+  color: white;
+}
+
+.conveyancer tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

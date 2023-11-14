@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import fetchInspectionData from './api/index.js';
 import CribCrendentials from './Components/CribCredentials/index.jsx';
 import axios from 'axios';
+import Conveyancer from './Components/CribCredentials/Conveyancer/Index.jsx';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <CribCrendentials inspectionData={inspectionData} isLoading={isLoading} />
         </Col>
       </Row>
+      <Conveyancer />
       <Row>
         <Col style={{ backgroundColor: "rgb(7,29,73)", height: "250px", marginTop:"20px" }}>
         </Col>
