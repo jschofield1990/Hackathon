@@ -16,7 +16,14 @@ function App() {
   return (
     <Container>
       <Row>
-        <Col style={{backgroundColor: "red"}}>1 of 1</Col>
+        <Col style={{ backgroundColor: "#005EB8", height: "75px" }}>
+          {/* this will be the header */}
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          {/* this is for Crib Credentials */}
+        </Col>
       </Row>
     </Container>
   );
