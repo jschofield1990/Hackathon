@@ -5,29 +5,38 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import { HouseFill, ArrowRight, EmojiAngryFill, EmojiSmileFill, EmojiHeartEyesFill, EmojiExpressionlessFill, EmojiFrownFill, Speedometer } from 'react-bootstrap-icons';
 import './index.css';
+import Spinner from 'react-bootstrap/Spinner';
 
-function CribCrendentials() {
+function CribCrendentials({ inspectionData, isLoading }) {
 
     return (
         <div className='crib-credentials-container'>
             <h2 style={{ marginTop: "20px" }}>Crib Credentials</h2>
             <Row>
-                <Col md="6"><Image src="detached-house.jpg" height={"400px"}/></Col>
+                <Col md="6"><Image src="detached-house.jpg" height={"400px"} /></Col>
                 <Col md="6">
                     <Image src="google-maps-api.png" height={"275px"} />
 
-                    <Row style={{ marginTop: "20px" }}>
-                        <Col md="6">
-                            <p><HouseFill /> Detached</p>
-                            <p><ArrowRight /> 3 Bedrooms</p>
-                            <p><ArrowRight /> 2 Bathrooms</p>
-                        </Col>
-                        <Col md="6">
-                            <p><HouseFill /> Detached</p>
-                            <p><ArrowRight /> 3 Bedrooms</p>
-                            <p><ArrowRight /> 2 Bathrooms</p>
-                        </Col>
-                    </Row>
+                    {isLoading &&
+                        <Spinner animation="border" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    }
+
+                    {inspectionData &&
+                        <Row style={{ marginTop: "20px" }}>
+                            <Col md="6">
+                                <p><HouseFill /> Detached</p>
+                                <p><ArrowRight /> {inspectionData.Bedrooms} Bedrooms</p>
+                                <p><ArrowRight /> 2 Bathrooms</p>
+                            </Col>
+                            <Col md="6">
+                                <p><HouseFill /> Detached</p>
+                                <p><ArrowRight /> 3 Bedrooms</p>
+                                <p><ArrowRight /> 2 Bathrooms</p>
+                            </Col>
+                        </Row>
+                    }
                 </Col>
             </Row>
             <Row className='property-scoring' style={{ marginTop: "20px" }}>

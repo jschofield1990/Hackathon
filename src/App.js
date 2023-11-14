@@ -1,18 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import fetchData from './api/index.js';
+import fetchInspectionData from './api/index.js';
 import CribCrendentials from './Components/CribCredentials/index.jsx';
 
 function App() {
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [inspectionData, setInspectionData] = useState([]);
+
   useEffect(() => {
-    const data = fetchData();
-    console.log(data);
+    const data = fetchInspectionData(setIsLoading);
+    setInspectionData(data);
   }, []);
 
   return (
@@ -25,7 +28,7 @@ function App() {
       <Row>
         <Col>
           {/* this is for Crib Credentials */}
-          <CribCrendentials />
+          <CribCrendentials inspectionData={inspectionData} />
         </Col>
       </Row>
     </Container>
